@@ -23,34 +23,52 @@ class MainActivity : AppCompatActivity() {
 
         pieChart.setUsePercentValues(true)
         pieChart.setDrawEntryLabels(false)
+        pieChart.setDrawMarkers(false)
         pieChart.isRotationEnabled = false
-        pieChart.description.text = ""
+        pieChart.getDescription().setEnabled(false)
 
         pieChart.setUsePercentValues(true)
         val dataEntries = ArrayList<PieEntry>()
-        dataEntries.add(PieEntry(73f, "Autoscan"))
-        dataEntries.add(PieEntry(27f, "Unfinished"))
+        dataEntries.add(PieEntry(60f, "9 mit Autoscan"))
+        dataEntries.add(PieEntry(13f, "11 Pos. erledigt"))
+        dataEntries.add(PieEntry(27f, "60% mit Autoscan"))
+
 
         val colors: ArrayList<Int> = ArrayList()
         colors.add(Color.parseColor("#ED4A3E"))
+        colors.add(Color.parseColor("#302E2E"))
         colors.add(Color.parseColor("#CED4D6"))
 
 
         val dataSet = PieDataSet(dataEntries, "")
         val data = PieData(dataSet)
 
+
         data.setValueFormatter(PercentFormatter())
         dataSet.sliceSpace = 3f
         dataSet.colors = colors
         pieChart.data = data
         pieChart.setCenterText("73%")
-        pieChart.setCenterTextSize(18F)
+        pieChart.setCenterTextSize(30F)
         pieChart.animateY(1400, Easing.EaseInOutQuad)
 
         pieChart.holeRadius = 80f
         pieChart.transparentCircleRadius = 61f
         pieChart.isDrawHoleEnabled = true
         pieChart.setHoleColor(Color.WHITE)
+
+
+        val l = pieChart.legend
+        pieChart.legend.isWordWrapEnabled = true
+        pieChart.legend.isEnabled = true
+        l.verticalAlignment = Legend.LegendVerticalAlignment.CENTER
+        l.horizontalAlignment = Legend.LegendHorizontalAlignment.LEFT
+        l.formSize = 5f
+        l.formToTextSpace = 0f
+        l.form = Legend.LegendForm.SQUARE
+        l.textSize = 10f
+        l.orientation = Legend.LegendOrientation.VERTICAL
+        l.isWordWrapEnabled = true
 
         pieChart.invalidate()
 

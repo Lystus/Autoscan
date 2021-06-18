@@ -1,4 +1,3 @@
 <resources>
-    <string name="app_name">Autoscan</string>
-    <string name="autoscan">AUTOSCAN</string>
+    <string name="app_name">AUTOSCAN</string>
 </resources>
