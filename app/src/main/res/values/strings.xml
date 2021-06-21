@@ -3,4 +3,6 @@
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="today">heute gespart dank AUTOSCAN</string>
+    <string name="total">insgesamt gespart dank AUTOSCAN</string>
+    <string name="week">diese Woche gespart dank AUTOSCAN</string>
 </resources>

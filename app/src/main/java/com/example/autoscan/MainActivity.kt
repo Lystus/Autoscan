@@ -104,8 +104,15 @@ class MainActivity : AppCompatActivity() {
     private inner class ScreenSlidePagerAdapter(fa: FragmentActivity) : FragmentStateAdapter(fa) {
         override fun getItemCount(): Int = NUM_PAGES
 
-        override fun createFragment(position: Int): Fragment = today()
+        override fun createFragment(position: Int): Fragment {
+            return if (position == 2) {
+                week()
+            } else if(position == 1){
+               total()
+            }else{
+                today()
+            }
+        }
     }
-
 
 }
