@@ -64,6 +64,7 @@ class week : Fragment() {
 
 
         dataSet.colors = colors
+        dataSet.setDrawValues(false)
         pie.data = data
         pie.isDrawHoleEnabled = false
         pie.legend.isEnabled = false

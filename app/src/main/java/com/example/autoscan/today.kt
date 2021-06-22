@@ -28,7 +28,7 @@ class today : Fragment() {
     // TODO: Rename and change types of parameters
     private var param1: String? = null
     private var param2: String? = null
-   private lateinit var pie: PieChart
+    private lateinit var pie: PieChart
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -68,6 +68,7 @@ class today : Fragment() {
 
 
         dataSet.colors = colors
+        dataSet.setDrawValues(false)
         pie.data = data
         pie.isDrawHoleEnabled = false
         pie.legend.isEnabled = false
