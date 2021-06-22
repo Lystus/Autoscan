@@ -82,6 +82,7 @@ class MainActivity : AppCompatActivity() {
         // The pager adapter, which provides the pages to the view pager widget.
         val pagerAdapter = ScreenSlidePagerAdapter(this)
         viewPager.adapter = pagerAdapter
+        viewPager.setCurrentItem(1);
 
 
 
@@ -108,9 +109,9 @@ class MainActivity : AppCompatActivity() {
             return if (position == 2) {
                 week()
             } else if(position == 1){
-               total()
+               today()
             }else{
-                today()
+               total()
             }
         }
     }
