@@ -13,16 +13,17 @@
 
         <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:layout_margin="16dp"
-            app:cardElevation="6dp"
-            app:contentPadding="8dp">
-        <com.github.mikephil.charting.charts.PieChart
-            android:id="@+id/pie"
-            android:layout_width="125dp"
-            android:layout_height="125dp"
-            android:layout_gravity="center_horizontal"
-            />
+            app:contentPadding="8dp"
+            app:cardElevation="0dp">
+
+            <com.github.mikephil.charting.charts.PieChart
+                android:id="@+id/pie"
+                android:layout_width="125dp"
+                android:layout_height="125dp"
+                android:layout_gravity="center_horizontal"
+                />
 
             <TextView
                 android:id="@+id/textView3"
