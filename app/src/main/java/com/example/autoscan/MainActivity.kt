@@ -53,6 +53,7 @@ class MainActivity : AppCompatActivity() {
         data.setValueFormatter(PercentFormatter())
         dataSet.sliceSpace = 3f
         dataSet.colors = colors
+        dataSet.setDrawValues(false)
         pieChart.data = data
         pieChart.setCenterText(" 73%")
         pieChart.setCenterTextSize(35F)
@@ -83,6 +84,8 @@ class MainActivity : AppCompatActivity() {
         val pagerAdapter = ScreenSlidePagerAdapter(this)
         viewPager.adapter = pagerAdapter
         viewPager.setCurrentItem(1);
+
+
 
 
 
