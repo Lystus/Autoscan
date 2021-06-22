@@ -1,7 +1,10 @@
 package com.example.autoscan
 
 import android.graphics.Color
+import android.media.Image
 import android.os.Bundle
+import android.widget.Button
+import android.widget.ImageButton
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentActivity
@@ -19,14 +22,16 @@ private const val NUM_PAGES = 3
 
 class MainActivity : AppCompatActivity() {
     private lateinit var pieChart: PieChart
+    private lateinit var collapseButton: ImageButton
 
     private lateinit var viewPager: ViewPager2
-    private var isVisible = false
+    private var collapseState = false
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         pieChart = findViewById<PieChart>(R.id.pieChart)
+        collapseButton = findViewById<ImageButton>(R.id.dropdownButton)
 
         pieChart.setUsePercentValues(true)
         pieChart.setDrawEntryLabels(false)
@@ -85,6 +90,11 @@ class MainActivity : AppCompatActivity() {
         val pagerAdapter = ScreenSlidePagerAdapter(this)
         viewPager.adapter = pagerAdapter
         viewPager.setCurrentItem(1)
+
+        collapseButton.setOnClickListener {
+            if (collapseState) collapse() else expand()
+        }
+        collapse()
     }
 
     override fun onBackPressed() {
@@ -110,15 +120,16 @@ class MainActivity : AppCompatActivity() {
             }
         }
     }
-    fun bind(task: Task)
+    private fun expand()
     {
-        itemView.taskName.text = task.taskName
-        itemView.taskDescription.text = task.taskDescription
-        itemView.dropdownButton.setOnClickListener {
-            if (isExpanded) collapse() else expand()
-        }
-
-        //All tasks should be collapsed by default
-        collapse()
+        AnimationUtils.expand(viewPager)
+        collapseButton.setImageResource(R.drawable.ic_baseline_keyboard_arrow_up_24)
+        collapseState = true
+    }
+    private fun collapse()
+    {
+        AnimationUtils.collapse(viewPager)
+        collapseButton.setImageResource(R.drawable.ic_baseline_keyboard_arrow_down_24)
+        collapseState = false
     }
 }
