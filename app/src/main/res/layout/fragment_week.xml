@@ -18,6 +18,14 @@
             app:contentPadding="8dp"
             app:cardElevation="0dp" >
 
+            <ImageView
+                android:id="@+id/imageView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="left|center_vertical"
+                android:layout_marginBottom="20dp"
+                app:srcCompat="@drawable/ic_baseline_keyboard_arrow_left_24" />
+
             <com.github.mikephil.charting.charts.PieChart
                 android:id="@+id/pie"
                 android:layout_width="125dp"

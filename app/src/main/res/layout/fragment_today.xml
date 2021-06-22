@@ -6,7 +6,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".today">
 
-    <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    <ScrollView
         android:id="@+id/content"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" >
@@ -17,6 +17,14 @@
             android:layout_margin="16dp"
             app:contentPadding="8dp"
             app:cardElevation="0dp">
+
+            <ImageView
+                android:id="@+id/imageView2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="left|center_vertical"
+                android:layout_marginBottom="20dp"
+                app:srcCompat="@drawable/ic_baseline_keyboard_arrow_left_24" />
 
             <com.github.mikephil.charting.charts.PieChart
                 android:id="@+id/pie"
@@ -36,6 +44,14 @@
                 android:textStyle="bold"
                 android:paddingTop="140dp"
                />
+
+            <ImageView
+                android:id="@+id/imageView3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="right|center_vertical"
+                android:layout_marginBottom="20dp"
+                app:srcCompat="@drawable/ic_baseline_keyboard_arrow_right_24" />
         </androidx.cardview.widget.CardView>
     </ScrollView>
 
