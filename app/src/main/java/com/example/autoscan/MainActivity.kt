@@ -21,6 +21,7 @@ class MainActivity : AppCompatActivity() {
     private lateinit var pieChart: PieChart
 
     private lateinit var viewPager: ViewPager2
+    private var isVisible = false
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -84,12 +85,8 @@ class MainActivity : AppCompatActivity() {
         val pagerAdapter = ScreenSlidePagerAdapter(this)
         viewPager.adapter = pagerAdapter
         viewPager.setCurrentItem(1)
-
-
-
-
-
     }
+
     override fun onBackPressed() {
         if (viewPager.currentItem == 0) {
             // If the user is currently looking at the first step, allow the system to handle the
@@ -100,11 +97,6 @@ class MainActivity : AppCompatActivity() {
             viewPager.currentItem = viewPager.currentItem - 1
         }
     }
-
-    /**
-     * A simple pager adapter that represents 5 ScreenSlidePageFragment objects, in
-     * sequence.
-     */
     private inner class ScreenSlidePagerAdapter(fa: FragmentActivity) : FragmentStateAdapter(fa) {
         override fun getItemCount(): Int = NUM_PAGES
 
@@ -118,5 +110,15 @@ class MainActivity : AppCompatActivity() {
             }
         }
     }
+    fun bind(task: Task)
+    {
+        itemView.taskName.text = task.taskName
+        itemView.taskDescription.text = task.taskDescription
+        itemView.dropdownButton.setOnClickListener {
+            if (isExpanded) collapse() else expand()
+        }
 
+        //All tasks should be collapsed by default
+        collapse()
+    }
 }
