@@ -55,8 +55,8 @@ class MainActivity : AppCompatActivity() {
         dataSet.colors = colors
         dataSet.setDrawValues(false)
         pieChart.data = data
-        pieChart.setCenterText(" 73%")
-        pieChart.setCenterTextSize(35F)
+        pieChart.setCenterText("73%")
+        pieChart.setCenterTextSize(25F)
         pieChart.animateY(1400, Easing.EaseInOutQuad)
 
         pieChart.holeRadius = 80f
@@ -83,7 +83,7 @@ class MainActivity : AppCompatActivity() {
         // The pager adapter, which provides the pages to the view pager widget.
         val pagerAdapter = ScreenSlidePagerAdapter(this)
         viewPager.adapter = pagerAdapter
-        viewPager.setCurrentItem(1);
+        viewPager.setCurrentItem(1)
 
 
 
