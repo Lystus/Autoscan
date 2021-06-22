@@ -70,15 +70,25 @@ class MainActivity : AppCompatActivity() {
         pieChart.isDrawHoleEnabled = true
         pieChart.setHoleColor(Color.WHITE)
 
-        val l = pieChart.legend
-        l.resetCustom()
 
         val entries: ArrayList<LegendEntry> = ArrayList()
-        entries.add(LegendEntry("11 Pos. erledigt", Legend.LegendForm.SQUARE, 5f, 0F, null, Color.BLACK))
-        entries.add(LegendEntry("9 mit Autoscan", Legend.LegendForm.SQUARE, 5f, 0F, null, Color.RED))
-        entries.add(LegendEntry("60% mit Autoscan", Legend.LegendForm.SQUARE, 5f, 0F, null, Color.RED))
+        entries.add(LegendEntry("11 Pos. erledigt", Legend.LegendForm.SQUARE, 5f, Float.NaN, null, Color.BLACK))
+        entries.add(LegendEntry("9 mit Autoscan", Legend.LegendForm.SQUARE, 5f, Float.NaN, null, Color.RED))
+        entries.add(LegendEntry("60% mit Autoscan", Legend.LegendForm.SQUARE, 5f, Float.NaN, null, Color.RED))
 
-       l.setExtra(entries)
+        val l = pieChart.legend
+
+        l.resetCustom()
+        l.setCustom(entries)
+
+        l.isWordWrapEnabled = true
+        l.verticalAlignment = Legend.LegendVerticalAlignment.CENTER
+        l.horizontalAlignment = Legend.LegendHorizontalAlignment.LEFT
+        l.formToTextSpace = 5f
+        l.form = Legend.LegendForm.SQUARE
+        l.textSize = 16f
+        l.orientation = Legend.LegendOrientation.VERTICAL
+
 
         pieChart.invalidate()
         viewPager = findViewById(R.id.pager)
