@@ -1,9 +1,7 @@
 package com.example.autoscan
 
 import android.graphics.Color
-import android.media.Image
 import android.os.Bundle
-import android.widget.Button
 import android.widget.ImageButton
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
@@ -13,10 +11,12 @@ import androidx.viewpager2.widget.ViewPager2
 import com.github.mikephil.charting.animation.Easing
 import com.github.mikephil.charting.charts.PieChart
 import com.github.mikephil.charting.components.Legend
+import com.github.mikephil.charting.components.LegendEntry
 import com.github.mikephil.charting.data.PieData
 import com.github.mikephil.charting.data.PieDataSet
 import com.github.mikephil.charting.data.PieEntry
 import com.github.mikephil.charting.formatter.PercentFormatter
+
 private const val NUM_PAGES = 3
 
 
@@ -41,9 +41,9 @@ class MainActivity : AppCompatActivity() {
 
         pieChart.setUsePercentValues(true)
         val dataEntries = ArrayList<PieEntry>()
-        dataEntries.add(PieEntry(60f, "9 mit Autoscan"))
-        dataEntries.add(PieEntry(13f, "11 Pos. erledigt"))
-        dataEntries.add(PieEntry(27f, "60% mit Autoscan"))
+        dataEntries.add(PieEntry(60f))
+        dataEntries.add(PieEntry(13f))
+        dataEntries.add(PieEntry(27f))
 
 
         val colors: ArrayList<Int> = ArrayList()
@@ -70,18 +70,15 @@ class MainActivity : AppCompatActivity() {
         pieChart.isDrawHoleEnabled = true
         pieChart.setHoleColor(Color.WHITE)
 
-
         val l = pieChart.legend
-        pieChart.legend.isWordWrapEnabled = true
-        pieChart.legend.isEnabled = true
-        l.verticalAlignment = Legend.LegendVerticalAlignment.CENTER
-        l.horizontalAlignment = Legend.LegendHorizontalAlignment.LEFT
-        l.formSize = 5f
-        l.formToTextSpace = 5f
-        l.form = Legend.LegendForm.SQUARE
-        l.textSize = 16f
-        l.orientation = Legend.LegendOrientation.VERTICAL
-        l.isWordWrapEnabled = true
+        l.resetCustom()
+
+        val entries: ArrayList<LegendEntry> = ArrayList()
+        entries.add(LegendEntry("11 Pos. erledigt", Legend.LegendForm.SQUARE, 5f, 0F, null, Color.BLACK))
+        entries.add(LegendEntry("9 mit Autoscan", Legend.LegendForm.SQUARE, 5f, 0F, null, Color.RED))
+        entries.add(LegendEntry("60% mit Autoscan", Legend.LegendForm.SQUARE, 5f, 0F, null, Color.RED))
+
+       l.setExtra(entries)
 
         pieChart.invalidate()
         viewPager = findViewById(R.id.pager)
